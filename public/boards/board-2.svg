@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 576">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #96dbff;
+      }
+    </style>
+  </defs>
+  <g id="Boards">
+    <g>
+      <rect class="cls-1" width="72" height="72"/>
+      <rect class="cls-2" y="72" width="72" height="72"/>
+      <rect class="cls-2" x="72" width="72" height="72"/>
+      <rect class="cls-1" x="72" y="72" width="72" height="72"/>
+      <rect class="cls-1" x="144" width="72" height="72"/>
+      <rect class="cls-2" x="144" y="72" width="72" height="72"/>
+      <rect class="cls-2" x="216" width="72" height="72"/>
+      <rect class="cls-1" x="216" y="72" width="72" height="72"/>
+      <rect class="cls-1" x="288" width="72" height="72"/>
+      <rect class="cls-2" x="288" y="72" width="72" height="72"/>
+      <rect class="cls-2" x="360" width="72" height="72"/>
+      <rect class="cls-1" x="360" y="72" width="72" height="72"/>
+      <rect class="cls-1" y="144" width="72" height="72"/>
+      <rect class="cls-2" y="216" width="72" height="72"/>
+      <rect class="cls-2" x="72" y="144" width="72" height="72"/>
+      <rect class="cls-1" x="72" y="216" width="72" height="72"/>
+      <rect class="cls-1" x="144" y="144" width="72" height="72"/>
+      <rect class="cls-2" x="144" y="216" width="72" height="72"/>
+      <rect class="cls-2" x="216" y="144" width="72" height="72"/>
+      <rect class="cls-1" x="216" y="216" width="72" height="72"/>
+      <rect class="cls-1" x="288" y="144" width="72" height="72"/>
+      <rect class="cls-2" x="288" y="216" width="72" height="72"/>
+      <rect class="cls-2" x="360" y="144" width="72" height="72"/>
+      <rect class="cls-1" x="360" y="216" width="72" height="72"/>
+      <rect class="cls-1" x="432" width="72" height="72"/>
+      <rect class="cls-2" x="432" y="72" width="72" height="72"/>
+      <rect class="cls-2" x="504" width="72" height="72"/>
+      <rect class="cls-1" x="504" y="72" width="72" height="72"/>
+      <rect class="cls-1" x="432" y="144" width="72" height="72"/>
+      <rect class="cls-2" x="432" y="216" width="72" height="72"/>
+      <rect class="cls-2" x="504" y="144" width="72" height="72"/>
+      <rect class="cls-1" x="504" y="216" width="72" height="72"/>
+      <rect class="cls-1" y="288" width="72" height="72"/>
+      <rect class="cls-2" y="360" width="72" height="72"/>
+      <rect class="cls-2" x="72" y="288" width="72" height="72"/>
+      <rect class="cls-1" x="72" y="360" width="72" height="72"/>
+      <rect class="cls-1" x="144" y="288" width="72" height="72"/>
+      <rect class="cls-2" x="144" y="360" width="72" height="72"/>
+      <rect class="cls-2" x="216" y="288" width="72" height="72"/>
+      <rect class="cls-1" x="216" y="360" width="72" height="72"/>
+      <rect class="cls-1" x="288" y="288" width="72" height="72"/>
+      <rect class="cls-2" x="288" y="360" width="72" height="72"/>
+      <rect class="cls-2" x="360" y="288" width="72" height="72"/>
+      <rect class="cls-1" x="360" y="360" width="72" height="72"/>
+      <rect class="cls-1" y="432" width="72" height="72"/>
+      <rect class="cls-2" y="504" width="72" height="72"/>
+      <rect class="cls-2" x="72" y="432" width="72" height="72"/>
+      <rect class="cls-1" x="72" y="504" width="72" height="72"/>
+      <rect class="cls-1" x="144" y="432" width="72" height="72"/>
+      <rect class="cls-2" x="144" y="504" width="72" height="72"/>
+      <rect class="cls-2" x="216" y="432" width="72" height="72"/>
+      <rect class="cls-1" x="216" y="504" width="72" height="72"/>
+      <rect class="cls-1" x="288" y="432" width="72" height="72"/>
+      <rect class="cls-2" x="288" y="504" width="72" height="72"/>
+      <rect class="cls-2" x="360" y="432" width="72" height="72"/>
+      <rect class="cls-1" x="360" y="504" width="72" height="72"/>
+      <rect class="cls-1" x="432" y="288" width="72" height="72"/>
+      <rect class="cls-2" x="432" y="360" width="72" height="72"/>
+      <rect class="cls-2" x="504" y="288" width="72" height="72"/>
+      <rect class="cls-1" x="504" y="360" width="72" height="72"/>
+      <rect class="cls-1" x="432" y="432" width="72" height="72"/>
+      <rect class="cls-2" x="432" y="504" width="72" height="72"/>
+      <rect class="cls-2" x="504" y="432" width="72" height="72"/>
+      <rect class="cls-1" x="504" y="504" width="72" height="72"/>
+    </g>
+  </g>
+</svg>

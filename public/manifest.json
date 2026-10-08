@@ -1,0 +1,17 @@
+{
+  "short_name": "PostMatem",
+  "name": "PostMatem — Offline-First Chess Workstation",
+  "description": "Private, client-side chess reviews, blunder workouts, and local Stockfish NNUE evaluations running 100% in your browser.",
+  "icons": [
+    {
+      "src": "./icons/chess-knight.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "./",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "display": "standalone",
+  "orientation": "any"
+}

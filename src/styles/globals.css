@@ -1,0 +1,470 @@
+:root {
+  color-scheme: dark;
+
+  /* ---- Surfaces (Rich Obsidian / Dark Basalt) ---- */
+  --bg-app: #121212;
+  --bg-surface: #1a1a1c;
+  --bg-surface-2: #202022;
+  --bg-surface-3: #262628;
+  --bg-inset: #0c0c0d;
+  --bg-wash: rgba(255, 255, 255, 0.03);
+  --bg-wash-strong: rgba(255, 255, 255, 0.055);
+
+  /* ---- Hairline dividers, not cards ---- */
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+  --hairline-soft: rgba(255, 255, 255, 0.045);
+
+  /* ---- Text Profile: Dark Basalt (crisp, warm chalk ink) ---- */
+  --text-primary: #F2EFEA;
+  --text-secondary: #B3ADA3;
+  --text-tertiary: #827C72;
+  --text-inverse: #121212;
+
+  /* ---- The one restrained accent: burnt terra cotta ---- */
+  --accent: #C1502E;
+  --accent-strong: #D9683F;
+  --accent-wash: rgba(193, 80, 46, 0.14);
+  --accent-wash-strong: rgba(193, 80, 46, 0.26);
+  --accent-border: rgba(193, 80, 46, 0.4);
+
+  /* ---- Secondary semantic tones (muted, matte — not the accent) ---- */
+  --positive: #7C9A5C;
+  --positive-wash: rgba(124, 154, 92, 0.14);
+  --positive-border: rgba(124, 154, 92, 0.35);
+
+  --negative: #B0483A;
+  --negative-wash: rgba(176, 72, 58, 0.14);
+  --negative-border: rgba(176, 72, 58, 0.35);
+
+  --gold: #C99A3E;
+  --gold-wash: rgba(201, 154, 62, 0.16);
+
+  /* ---- Move classification palette (matte, desaturated) ---- */
+  --class-brilliant: #4FA8A0;
+  --class-great: #6E8FBF;
+  --class-best: #7C9A5C;
+  --class-excellent: #8FA873;
+  --class-good: #9A948A;
+  --class-inaccuracy: #C99A3E;
+  --class-mistake: #C97D3E;
+  --class-blunder: #B0483A;
+  --class-forced: #726C62;
+  --class-book: #A68A5B;
+  --class-miss: #A8402F;
+
+  /* ---- Board (matte, gentle contrast walnut/parchment) ---- */
+  --board-light: #D8CBB3;
+  --board-dark: #7C5A3E;
+
+  /* ---- Radii: tight and deliberate ---- */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* ---- Shadows: soft, physical, never floating-neon ---- */
+  --shadow-board-inset: inset 0 1px 3px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+  --shadow-piece-lift: 0 14px 22px -8px rgba(0, 0, 0, 0.55), 0 4px 10px -2px rgba(0, 0, 0, 0.4);
+  --shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-modal: 0 16px 40px rgba(0, 0, 0, 0.5);
+
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Light Theme: Editorial Linen & Warm Parchment
+   Tactile, physical archival paper aesthetic — warm, dignified,
+   with high-contrast deep sumi ink text for effortless reading.
+   ───────────────────────────────────────────────────────────── */
+html.light,
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  /* ---- Surfaces (Warm Archival Paper & Unbleached Linen) ---- */
+  --bg-app: #F5F2EA;
+  --bg-surface: #EDE7DC;
+  --bg-surface-2: #E4DDD0;
+  --bg-surface-3: #DDD5C5;
+  --bg-inset: #E8E2D5;
+  --bg-wash: rgba(0, 0, 0, 0.04);
+  --bg-wash-strong: rgba(0, 0, 0, 0.08);
+
+  /* ---- Hairlines (Refined print rule dividers, delicate lithograph lines) ---- */
+  --hairline: rgba(0, 0, 0, 0.11);
+  --hairline-strong: rgba(0, 0, 0, 0.18);
+  --hairline-soft: rgba(0, 0, 0, 0.06);
+
+  /* ---- Text Profile: Parchment Linen (Deep Sumi Charcoal & Sepia Ink) ---- */
+  --text-primary: #141311;
+  --text-secondary: #423E37;
+  --text-tertiary: #6B655B;
+  --text-inverse: #FAF7F2;
+
+  /* ---- Restrained Accent: Deep Terracotta (High Contrast on Paper) ---- */
+  --accent: #A83B1B;
+  --accent-strong: #8C2B10;
+  --accent-wash: rgba(168, 59, 27, 0.10);
+  --accent-wash-strong: rgba(168, 59, 27, 0.18);
+  --accent-border: rgba(168, 59, 27, 0.35);
+
+  /* ---- Secondary Semantic Tones (Matte Ink Prints) ---- */
+  --positive: #507034;
+  --positive-wash: rgba(80, 112, 52, 0.12);
+  --positive-border: rgba(80, 112, 52, 0.32);
+
+  --negative: #983327;
+  --negative-wash: rgba(152, 51, 39, 0.12);
+  --negative-border: rgba(152, 51, 39, 0.32);
+
+  --gold: #A87A28;
+  --gold-wash: rgba(168, 122, 40, 0.14);
+
+  /* ---- Shadows: Soft, physical paper plate depth ---- */
+  --shadow-board-inset: inset 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  --shadow-piece-lift: 0 12px 20px -6px rgba(0, 0, 0, 0.28), 0 3px 8px -2px rgba(0, 0, 0, 0.18);
+  --shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-app);
+}
+
+body {
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Structural panel: matte surface + hairline border, no blur, no floating glow */
+.panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+}
+
+/* Razor-thin low-contrast divider */
+.hairline {
+  border: none;
+  border-top: 1px solid var(--hairline);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+  border-radius: var(--radius-sm);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes softPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Fluid evaluation bar animation */
+.eval-bar-fill {
+  transition: height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: height;
+}
+
+/* ---- Piece lift micro-interaction ---- */
+/* react-chessboard wraps the actively-dragged custom piece in this element */
+[draggable="true"] {
+  transition: filter 0.12s ease;
+}
+
+.pm-piece {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.12s ease;
+  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+}
+
+.pm-piece--lifted {
+  transform: scale(1.09);
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.45)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.pm-piece img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---- Cursor behavior when dragging / holding a piece ---- */
+body.pm-holding-piece,
+.pm-board-holding,
+.pm-board-holding [data-square],
+.pm-board-holding [data-piece],
+.pm-board-holding svg,
+.pm-board-holding img {
+  cursor: grabbing !important;
+}
+
+/* Optional toggle: sleek minimal cursor hiding for players who prefer piece-only floating */
+body.pm-hide-cursor.pm-holding-piece,
+body.pm-hide-cursor .pm-board-holding,
+body.pm-hide-cursor .pm-board-holding [data-square],
+body.pm-hide-cursor .pm-board-holding [data-piece],
+body.pm-hide-cursor .pm-board-holding svg,
+body.pm-hide-cursor .pm-board-holding img {
+  cursor: none !important;
+}
+
+/* Range slider — matte, accent thumb, no glow */
+input[type='range'].pm-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: var(--hairline-strong);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: none;
+}
+input[type='range'].pm-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-app);
+  cursor: pointer;
+  margin-top: -6px;
+  transition: transform 0.1s ease;
+}
+input[type='range'].pm-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+input[type='range'].pm-slider::-moz-range-track {
+  height: 3px;
+  background: var(--hairline-strong);
+  border-radius: var(--radius-sm);
+}
+input[type='range'].pm-slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-app);
+  cursor: pointer;
+}
+
+@keyframes badgePopIn {
+  0% {
+    transform: scale(0.35);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Responsive Mobile Architecture (Zero PC Regressions)
+   ========================================================================== */
+
+/* Prevent iOS double-tap zoom delay on chessboard */
+.pm-board-wrapper,
+.pm-board-outer,
+.pm-board-col {
+  touch-action: manipulation;
+}
+
+@media (max-width: 960px) {
+  /* 1. Root container allows natural vertical scrolling */
+  .pm-app-container {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    flex-direction: column !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 2. Left rail transforms into a sleek, fixed bottom navigation bar */
+  .pm-rail {
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 56px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    padding: 0 4px calc(env(safe-area-inset-bottom, 0px) + 2px) !important;
+    background: var(--bg-surface) !important;
+    border-right: none !important;
+    border-top: 1px solid var(--hairline-strong) !important;
+    z-index: 80 !important;
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.45);
+    gap: 2px !important;
+  }
+
+  /* Hide decorative desktop elements from bottom bar */
+  .pm-rail-logo,
+  .pm-rail-divider,
+  .pm-rail-spacer {
+    display: none !important;
+  }
+
+  /* Mobile bottom bar tabs */
+  .pm-rail-tab {
+    width: auto !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    padding: 6px 2px !important;
+    gap: 2px !important;
+    border-radius: var(--radius-xs) !important;
+  }
+
+  .pm-rail-tab span {
+    font-size: 9.5px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    letter-spacing: -0.2px !important;
+  }
+
+  /* 3. Main Stage becomes a fluid centered single column */
+  .pm-stage {
+    height: auto !important;
+    max-height: none !important;
+    padding: 12px 12px calc(68px + env(safe-area-inset-bottom, 0px)) 12px !important;
+    overflow: visible !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .pm-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    align-items: stretch !important;
+  }
+
+  /* 4. Chessboard column and outer wrapper */
+  .pm-board-col {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .pm-board-outer {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .pm-board-wrapper {
+    width: 100% !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* 5. Console / Review Desk stacks underneath board */
+  .pm-console-col {
+    width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border-left: none !important;
+    border-top: 1px solid var(--hairline) !important;
+    padding-left: 0 !important;
+    padding-top: 16px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* On very compact screens, eval bar is slightly slimmer */
+  .pm-evalbar-root {
+    width: 22px !important;
+  }
+
+  .pm-stage {
+    padding: 8px 8px calc(66px + env(safe-area-inset-bottom, 0px)) 8px !important;
+  }
+
+  .pm-board-outer {
+    gap: 8px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Wood Grain Board Texture Overlay
+   Blends organic timber grain onto board tiles while preserving
+   high-contrast piece clarity and drag responsiveness.
+   ───────────────────────────────────────────────────────────── */
+.pm-board-container {
+  isolation: isolate;
+}
+
+.pm-wood-grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+  transition: opacity 0.12s ease-out;
+}
+
+/* Pieces sit on top of wood grain overlay */
+.pm-piece {
+  position: relative;
+}

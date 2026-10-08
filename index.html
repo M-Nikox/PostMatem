@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./icons/chess-knight.svg" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>PostMatem</title>
+  <meta name="description"
+    content="A sleek, dark-themed play-and-analyze chess platform with real-time Stockfish NNUE evaluations, brilliant move detection, and deep game reviews." />
+  <meta name="theme-color" content="#121212" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PostMatem — Offline-First Chess Workstation" />
+  <meta property="og:description"
+    content="Private, client-side chess reviews, blunder workouts, and local Stockfish NNUE evaluations running 100% in your browser." />
+  <meta property="og:image" content="./icons/chess-knight.svg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PostMatem — Offline-First Chess Workstation" />
+  <meta name="twitter:description"
+    content="Private, client-side chess reviews, blunder workouts, and local Stockfish NNUE evaluations running 100% in your browser." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('postmatem_theme_mode') || 'dark';
+        var isLight = theme === 'light' || (theme === 'system' && window.matchMedia && !window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isLight) {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: dark light;
+      background-color: var(--bg-app, #121212);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-app, #121212);
+      color: var(--text-primary, #F2EFEA);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
