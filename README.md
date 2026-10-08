@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://github.com/M-Nikox/PostMatem/releases"><img src="https://img.shields.io/github/v/release/M-Nikox/PostMatem?label=release&color=4c9a2a" alt="Release"></a>
-  <a href="https://github.com/M-Nikox/PostMatem/actions/workflows/ci.yml"><img src="https://github.com/M-Nikox/PostMatem/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
+  <a href="https://github.com/M-Nikox/PostMatem/actions/workflows/ci.yml"><img src="https://github.com/M-Nikox/PostMatem/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-blue" alt="License"></a>
 </p>
 
