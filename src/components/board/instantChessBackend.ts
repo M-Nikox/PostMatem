@@ -16,7 +16,7 @@ export const InstantChessBackend = function createBackend(manager: any, context:
     ...options,
   };
 
-  const backend = new TouchBackendImpl(manager, context, mergedOptions);
+  const backend: any = new TouchBackendImpl(manager, context, mergedOptions);
   const originalHandleTopMoveStart = backend.handleTopMoveStart;
 
   // Bypass any async timer delay to ensure synchronous response on mousedown / touchstart

@@ -150,7 +150,7 @@ export class MoveGraph {
   public static setNodeEval(
     state: MoveTreeState,
     nodeId: string,
-    evaluation: PositionEvaluation,
+    evaluation?: PositionEvaluation,
     classification?: MoveClassification
   ): MoveTreeState {
     const node = state.nodes[nodeId];
@@ -158,7 +158,7 @@ export class MoveGraph {
 
     const updatedNode: MoveNode = {
       ...node,
-      eval: evaluation,
+      eval: evaluation !== undefined ? evaluation : node.eval,
       classification: classification || node.classification,
     };
 

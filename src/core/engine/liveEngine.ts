@@ -17,7 +17,6 @@ export class LiveEngine {
   private isStopping = false;
   private currentFen = '';
   private currentTargetDepth = 18;
-  private currentMultiPv = 3;
   private appliedMultiPv = 0;
   private appliedSkillLevel = -1;
   private messagesBuffer: string[] = [];
@@ -241,7 +240,6 @@ export class LiveEngine {
 
     this.currentFen = fen;
     this.currentTargetDepth = depth;
-    this.currentMultiPv = multiPv;
     this.isEvaluating = true;
     this.messagesBuffer = [];
     this.lastStreamTime = 0;

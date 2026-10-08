@@ -14,7 +14,6 @@ import { MoveClassifier } from '../core/analysis/moveClassifier';
 import { WinRateMath } from '../core/analysis/winRate';
 import { AccuracyCalculator } from '../core/analysis/accuracy';
 import { EloEstimator } from '../core/analysis/eloEstimator';
-import { GamePhaseDetector } from '../core/analysis/gamePhase';
 import { GameRepository } from '../core/storage/gameRepository';
 import { getOpeningForMoves, isPathInBook, isExactBookSequence } from '../core/analysis/openingBook';
 import { EvalCache } from '../core/storage/evalCache';
@@ -135,7 +134,7 @@ export interface AppState {
   loadFen: (fen: string) => boolean;
   loadOpeningLine: (name: string, eco: string, moves: string[]) => boolean;
   exportPgn: () => string;
-  runPostMortemAnalysis: () => Promise<void>;
+  runPostMortemAnalysis: (targetDepth?: number) => Promise<void>;
   loadGameFromStorage: (id: string) => Promise<void>;
 
   // Mistake Workout Actions
@@ -202,7 +201,7 @@ function isThreefoldRepetitionDraw(treeState: MoveTreeState, currentNodeId: stri
   let curr: string | null = currentNodeId;
 
   while (curr) {
-    const node = treeState.nodes[curr];
+    const node: MoveNode | undefined = treeState.nodes[curr];
     if (!node) break;
     // Repetition key: piece placement, side to move, castling rights, and en passant square
     const posKey = node.fen.split(' ').slice(0, 4).join(' ');
@@ -1324,13 +1323,14 @@ export const useAppStore = create<AppState>()(
               if (get().playStyle === 'casual') {
                 const node = newState.nodes[newNodeId];
                 if (node) {
+                  const liveEngine = getLiveEngine();
                   liveEngine
-                    .evaluate(node.fen, 14, 1, (partial) => {
+                    .evaluate(node.fen, 14, 1, (partial: PositionEvaluation) => {
                       set((s) => {
                         s.liveEval = partial;
                       });
                     })
-                    .then((postEval) => {
+                    .then((postEval: PositionEvaluation) => {
                       set((s) => {
                         s.liveEval = postEval;
                       });
@@ -1500,7 +1500,7 @@ export const useAppStore = create<AppState>()(
           if (node.isWhite !== isWhite) continue;
           if (!node.classification || !mistakeTypes.has(node.classification.type)) continue;
 
-          const parentNode = treeState.nodes[node.parentId];
+          const parentNode = node.parentId ? treeState.nodes[node.parentId] : null;
           const fenBefore = parentNode ? parentNode.fen : MoveGraph.DEFAULT_FEN;
           const evalBefore = parentNode?.eval;
           const bestMoveUci = evalBefore?.lines?.[0]?.uciMove || '';
@@ -1508,7 +1508,7 @@ export const useAppStore = create<AppState>()(
 
           list.push({
             nodeId: node.id,
-            parentNodeId: node.parentId,
+            parentNodeId: node.parentId || '',
             ply: node.ply,
             moveNumber: node.moveNumber,
             isWhite: node.isWhite,
@@ -1745,13 +1745,15 @@ export const useAppStore = create<AppState>()(
       return PgnSerializer.serialize(treeState, enrichedHeaders);
     },
 
-    runPostMortemAnalysis: async () => {
+    runPostMortemAnalysis: async (targetDepth?: number) => {
       const { treeState, activeGameId } = get();
       const targetGameId = activeGameId;
       const targetTreeRootId = treeState.rootId;
 
       const mainline = MoveGraph.getMainlineNodes(treeState);
       if (mainline.length <= 1) return;
+
+      const analysisDepth = targetDepth || 16;
 
       set((state) => {
         state.mode = 'BATCH_ANALYSIS';
@@ -1763,8 +1765,8 @@ export const useAppStore = create<AppState>()(
         const fens = mainline.map((node) => node.fen);
         const batchPool = getBatchPool();
 
-        // Check cache first for existing evaluations (ensuring minimum depth 16)
-        const cachedEvals = await Promise.all(fens.map((fen) => EvalCache.get(fen, 16, 1)));
+        // Check cache first for existing evaluations (ensuring minimum target depth)
+        const cachedEvals = await Promise.all(fens.map((fen) => EvalCache.get(fen, analysisDepth, 1)));
         const missingIndexes: number[] = [];
         const fensToEvaluate: string[] = [];
 
@@ -1780,7 +1782,7 @@ export const useAppStore = create<AppState>()(
         if (fensToEvaluate.length > 0) {
           const calculated = await batchPool.batchEvaluate(
             fensToEvaluate,
-            16,
+            analysisDepth,
             (percent) => {
               // Only update progress if still viewing the same target game
               if (get().activeGameId === targetGameId) {

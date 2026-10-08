@@ -3,7 +3,7 @@ import { Chessboard } from 'react-chessboard';
 import { InstantChessBackend } from './instantChessBackend';
 import { Chess, Square } from 'chess.js';
 import { useAppStore } from '../../store/useAppStore';
-import { getCustomPieces, getPieceSvg } from './pieceResolver';
+import { getCustomPieces, getPieceSvg, PieceSetId } from './pieceResolver';
 import { PieceIcon } from './PieceIcon';
 import { ClassificationIcon } from '../common/ClassificationIcon';
 import { EvalBar } from './EvalBar';
@@ -113,7 +113,7 @@ function createCustomSquareRenderer(
           >
             <div className="pm-piece">
               <img
-                src={getPieceSvg(optimisticMove.piece, pieceSet)}
+                src={getPieceSvg(optimisticMove.piece, pieceSet as PieceSetId)}
                 alt={optimisticMove.piece}
                 draggable={false}
                 style={{
@@ -853,7 +853,7 @@ export const ChessBoardView: React.FC<ChessBoardViewProps> = ({ onOpenAppearance
   const CustomSquareRenderer = useMemo(() => createCustomSquareRenderer(squareContextRef), []);
 
   const safeBoardSvg = boardSvg ? boardSvg.replace(/[^a-zA-Z0-9_.-]/g, '') : null;
-  const boardStyle: React.CSSProperties = useMemo(
+  const boardStyle: Record<string, string | number> = useMemo(
     () =>
       safeBoardSvg
         ? {

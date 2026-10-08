@@ -59,8 +59,6 @@ const TEXT_PRIMARY = '#F2EFEA';
 const TEXT_SECONDARY = '#ACA69B';
 const TEXT_TERTIARY = '#726C62';
 
-const GOLD = '#C99A3E';
-
 // Classification label → accent color (muted, from globals.css)
 const CLASS_COLOR: Record<string, string> = {
   brilliant: '#4FA8A0',
@@ -224,7 +222,7 @@ export class GameCardGenerator {
     M: number,
     H: number,
     data: GameCardData,
-    accent: AccentPreset
+    _accent: AccentPreset
   ): void {
     const midY = H / 2;
     ctx.textBaseline = 'middle';

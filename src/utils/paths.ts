@@ -30,7 +30,7 @@ export function getAssetPath(relativePath: string): string {
     const normalizedBase = base.endsWith('/') ? base : `${base.split('#')[0].split('?')[0]}/`;
     return new URL(cleanPath, normalizedBase).href;
   } catch {
-    const basePrefix = import.meta.env.BASE_URL || '/';
+    const basePrefix = ((import.meta as any).env?.BASE_URL as string) || '/';
     const normalizedPrefix = basePrefix.endsWith('/') ? basePrefix : `${basePrefix}/`;
     return `${normalizedPrefix}${cleanPath}`;
   }

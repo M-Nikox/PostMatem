@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import {
   searchOpenings,
-  getAllOpenings,
   loadOpeningBook,
   EcoEntry,
 } from '../../core/analysis/openingBook';
-import { X, Search, BookOpen, ArrowRight, Sparkles, Compass } from 'lucide-react';
+import { X, Search, BookOpen, ArrowRight } from 'lucide-react';
 
 interface OpeningExplorerModalProps {
   isOpen: boolean;

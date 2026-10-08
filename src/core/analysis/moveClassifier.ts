@@ -3,7 +3,7 @@ import { PositionEvaluation } from '../engine/types';
 import { AccuracyCalculator } from './accuracy';
 import { MoveAnnotator, MoveAnnotatorDetails } from './annotator';
 import { TacticsDetector } from './tacticsDetector';
-import { MoveClassification, MoveClassificationType, SacrificedPiece } from './types';
+import { MoveClassification, MoveClassificationType } from './types';
 import { WinRateMath } from './winRate';
 
 export interface ClassifyMoveParams {

@@ -1,5 +1,5 @@
 import { MoveClassificationType } from '../analysis/types';
-import { MoveNode, MoveTreeState } from './moveGraph';
+import { MoveTreeState } from './moveGraph';
 import { PgnHeaders } from './pgnParser';
 
 export class PgnSerializer {

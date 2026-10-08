@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { UploadCloud, CheckCircle2, FileText } from 'lucide-react';
+import { UploadCloud, CheckCircle2 } from 'lucide-react';
 
 export const GlobalDropZone: React.FC = () => {
   const loadPgn = useAppStore((state) => state.loadPgn);

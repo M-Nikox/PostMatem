@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { useAppStore, PlayStyle } from '../../store/useAppStore';
+import { useAppStore } from '../../store/useAppStore';
 import { getStockfishElo } from '../../core/engine/stockfishElo';
 import { MoveGraph } from '../../core/tree/moveGraph';
 import { getOpeningForMoves } from '../../core/analysis/openingBook';
@@ -10,7 +10,6 @@ import {
   Swords,
   Sparkles,
   Flag,
-  RotateCcw,
   Undo2,
   Lock,
   BookOpen,
@@ -310,7 +309,9 @@ export const MatchConsole: React.FC = () => {
                 <EngineSelector variant="compact" disabled={true} disabledTooltip="Engine locked for tournament match" align="right" />
                 <span style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
                   <span>{stockfishElo} Elo</span>
-                  <Lock size={12} color="var(--text-tertiary)" title="Locked for tournament match" />
+                  <span title="Locked for tournament match" style={{ display: 'inline-flex' }}>
+                    <Lock size={12} color="var(--text-tertiary)" />
+                  </span>
                 </span>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { X, Copy, Download, Check, Share2, FileText, Sparkles, Loader2 } from 'lucide-react';
+import { X, Copy, Download, Check, Share2, FileText, Loader2 } from 'lucide-react';
 import { useAppStore } from '../../store/useAppStore';
 import { GameCardData, GameCardGenerator } from '../../core/export/gameCardGenerator';
 import { MoveGraph } from '../../core/tree/moveGraph';
