@@ -34,21 +34,6 @@ export class SoundManager {
     lowtime: 'sounds/lowtime.mp3',
   };
 
-  /**
-   * Sound aliases and fallback hierarchy
-   */
-  private static readonly FALLBACKS: Record<string, string[]> = {
-    castle: ['castle', 'move'],
-    promote: ['promote', 'move'],
-    chekmate: ['chekmate', 'checkmate', 'victory', 'game-end'],
-    checkmate: ['checkmate', 'chekmate', 'victory', 'game-end'],
-    victory: ['victory', 'chekmate', 'checkmate', 'game-end'],
-    defeat: ['defeat', 'chekmate', 'checkmate', 'game-end'],
-    draw: ['draw', 'game-end'],
-    'game-end': ['game-end', 'chekmate', 'checkmate', 'victory', 'defeat', 'draw'],
-    error: ['error', 'illegal'],
-    illegal: ['illegal', 'error'],
-  };
 
   /**
    * Automatically initializes or resumes the Web Audio context.
