@@ -853,16 +853,14 @@ export const ChessBoardView: React.FC<ChessBoardViewProps> = ({ onOpenAppearance
   const CustomSquareRenderer = useMemo(() => createCustomSquareRenderer(squareContextRef), []);
 
   const safeBoardSvg = boardSvg ? boardSvg.replace(/[^a-zA-Z0-9_.-]/g, '') : null;
-  const boardStyle: Record<string, string | number> = useMemo(
-    () =>
-      safeBoardSvg
-        ? {
-            backgroundImage: `url('${getAssetPath(`boards/${safeBoardSvg}`)}')`,
-            backgroundSize: 'cover',
-          }
-        : {},
-    [safeBoardSvg]
-  );
+  const boardStyle: Record<string, string | number> = useMemo(() => {
+    const style: Record<string, string | number> = {};
+    if (safeBoardSvg) {
+      style.backgroundImage = `url('${getAssetPath(`boards/${safeBoardSvg}`)}')`;
+      style.backgroundSize = 'cover';
+    }
+    return style;
+  }, [safeBoardSvg]);
 
   const customDarkSquareStyle = useMemo(
     () => ({
