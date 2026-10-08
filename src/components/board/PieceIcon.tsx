@@ -1,5 +1,6 @@
 import React from 'react';
 import { PieceSetId, PIECE_PATHS } from './pieceResolver';
+import { getAssetPath } from '../../utils/paths';
 
 export const DEFAULT_PIECES_JSX: Record<string, React.ReactNode> = {
   wP: (
@@ -318,7 +319,7 @@ export const PieceIcon: React.FC<PieceIconProps> = ({
 
   return (
     <img
-      src={path}
+      src={getAssetPath(path)}
       alt={pieceKey}
       draggable={false}
       style={{

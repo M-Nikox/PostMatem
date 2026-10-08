@@ -126,6 +126,12 @@ export async function detectFullEngineAvailability(): Promise<boolean> {
   if (fullEngineDetected !== null) return fullEngineDetected;
   if (typeof window === 'undefined') return false;
 
+  // On GitHub Pages or cloud hosts, full 99MB engine is omitted to preserve bandwidth
+  if (window.location.hostname.includes('github.io') || window.location.hostname.includes('pages.dev')) {
+    fullEngineDetected = false;
+    return false;
+  }
+
   try {
     const res = await fetch(getAssetPath('engines/stockfish-19.wasm'), { method: 'HEAD' });
     fullEngineDetected = res.ok && res.status === 200;

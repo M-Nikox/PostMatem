@@ -23,7 +23,16 @@ export class SoundManager {
   private static missingFiles = new Set<string>();
   private static audioCtx: AudioContext | null = null;
 
-  private static readonly EXTENSIONS = ['.mp3', '.ogg', '.opus', '.wav'];
+  private static readonly KNOWN_SOUND_FILES: Record<string, string> = {
+    move: 'sounds/move.mp3',
+    capture: 'sounds/capture.mp3',
+    castle: 'sounds/move.mp3',
+    promote: 'sounds/move.mp3',
+    error: 'sounds/error.mp3',
+    illegal: 'sounds/error.mp3',
+    genericnotify: 'sounds/genericnotify.mp3',
+    lowtime: 'sounds/lowtime.mp3',
+  };
 
   /**
    * Sound aliases and fallback hierarchy
@@ -109,29 +118,20 @@ export class SoundManager {
 
     const ctx = this.initContext();
     if (!ctx) return;
-
-    const baseNames = this.FALLBACKS[type] || [type];
-    const candidatePaths: string[] = [];
-
-    for (const name of baseNames) {
-      for (const ext of this.EXTENSIONS) {
-        candidatePaths.push(getAssetPath(`sounds/${name}${ext}`));
-      }
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(() => {});
     }
 
-    // 1. Check if an audio file is already cached in memory
-    for (const path of candidatePaths) {
+    const soundFile = this.KNOWN_SOUND_FILES[type];
+    if (soundFile) {
+      const path = getAssetPath(soundFile);
       const cached = this.bufferCache.get(path);
       if (cached) {
         this.playBuffer(cached, ctx);
         return;
       }
-    }
 
-    // 2. If candidate exists on disk, load and play it
-    const candidate = candidatePaths.find((p) => !this.missingFiles.has(p));
-    if (candidate) {
-      this.loadAudioBuffer(candidate).then((buf) => {
+      this.loadAudioBuffer(path).then((buf) => {
         if (buf && this.audioCtx) {
           this.playBuffer(buf, this.audioCtx);
         } else {
@@ -141,7 +141,7 @@ export class SoundManager {
       return;
     }
 
-    // 3. Fallback to procedural synthetic audio
+    // Direct procedural synthesis for check, defeat, victory, draw, etc.
     this.playSynthetic(type);
   }
 
@@ -458,15 +458,16 @@ if (typeof window !== 'undefined') {
   const unlockAudio = () => {
     if (isUnlocked) return;
     isUnlocked = true;
-    SoundManager.initContext();
+    const ctx = SoundManager.initContext();
+    if (ctx && ctx.state === 'suspended') {
+      ctx.resume().catch(() => {});
+    }
     preloadCommonSounds();
-    window.removeEventListener('pointerdown', unlockAudio);
-    window.removeEventListener('keydown', unlockAudio);
-    window.removeEventListener('touchstart', unlockAudio);
   };
-  window.addEventListener('pointerdown', unlockAudio, { passive: true });
-  window.addEventListener('keydown', unlockAudio, { passive: true });
-  window.addEventListener('touchstart', unlockAudio, { passive: true });
+  window.addEventListener('click', unlockAudio, { passive: true, once: true });
+  window.addEventListener('pointerup', unlockAudio, { passive: true, once: true });
+  window.addEventListener('touchend', unlockAudio, { passive: true, once: true });
+  window.addEventListener('keydown', unlockAudio, { passive: true, once: true });
 
   // Early idle prefetch: fetch sound files into browser network cache without triggering AudioContext autoplay restrictions
   const prefetchNetworkOnly = () => {

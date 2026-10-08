@@ -24,14 +24,20 @@ export function getAssetPath(relativePath: string): string {
     return `/${cleanPath}`;
   }
 
-  try {
-    // Resolve relative to document.baseURI (which honors <base> tag and subpath routing)
-    const base = document.baseURI || window.location.href;
-    const normalizedBase = base.endsWith('/') ? base : `${base.split('#')[0].split('?')[0]}/`;
-    return new URL(cleanPath, normalizedBase).href;
-  } catch {
-    const basePrefix = ((import.meta as any).env?.BASE_URL as string) || '/';
-    const normalizedPrefix = basePrefix.endsWith('/') ? basePrefix : `${basePrefix}/`;
+  // 1. Honor Vite's base URL if configured (e.g. '/PostMatem/')
+  const viteBase = ((import.meta as any).env?.BASE_URL as string) || '';
+  if (viteBase && viteBase !== './' && viteBase !== '/') {
+    const normalizedPrefix = viteBase.endsWith('/') ? viteBase : `${viteBase}/`;
     return `${normalizedPrefix}${cleanPath}`;
   }
+
+  // 2. Automatic GitHub Pages subpath detection (https://<user>.github.io/<repo>/)
+  if (window.location.hostname.endsWith('github.io')) {
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    if (segments.length > 0 && segments[0] !== cleanPath.split('/')[0]) {
+      return `/${segments[0]}/${cleanPath}`;
+    }
+  }
+
+  return `/${cleanPath}`;
 }

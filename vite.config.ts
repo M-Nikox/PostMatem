@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  base: process.env.GITHUB_ACTIONS ? '/PostMatem/' : './',
   plugins: [react()],
   resolve: {
     alias: {
