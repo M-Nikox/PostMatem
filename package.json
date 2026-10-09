@@ -2,8 +2,31 @@
   "name": "postmatem",
   "private": true,
   "version": "1.0.2",
+  "description": "Private, client-side chess workstation and game review studio powered by WebAssembly Stockfish with zero server computation.",
   "author": "M-Nikox (https://github.com/M-Nikox)",
   "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/M-Nikox/PostMatem.git"
+  },
+  "homepage": "https://github.com/M-Nikox/PostMatem#readme",
+  "bugs": {
+    "url": "https://github.com/M-Nikox/PostMatem/issues"
+  },
+  "keywords": [
+    "chess",
+    "chess-analysis",
+    "chess-engine",
+    "game-review",
+    "offline-first",
+    "pgn",
+    "react",
+    "stockfish",
+    "stockfish-wasm",
+    "typescript",
+    "vite",
+    "webassembly"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
