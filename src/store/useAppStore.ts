@@ -253,7 +253,7 @@ export const useAppStore = create<AppState>()(
         ? localStorage.getItem('postmatem_casual_classifications') !== 'false'
         : true,
 
-    pieceSet: (typeof window !== 'undefined' && (localStorage.getItem('postmatem_piece_set') as PieceSetId)) || 'classic',
+    pieceSet: (typeof window !== 'undefined' && (localStorage.getItem('postmatem_piece_set') as PieceSetId)) || 'default',
     darkSquareColor: (typeof window !== 'undefined' && localStorage.getItem('postmatem_dark_square')) || '#7C5A3E',
     lightSquareColor: (typeof window !== 'undefined' && localStorage.getItem('postmatem_light_square')) || '#D8CBB3',
     boardSvg: (typeof window !== 'undefined' && localStorage.getItem('postmatem_board_svg')) || null,

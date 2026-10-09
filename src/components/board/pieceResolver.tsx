@@ -10,11 +10,11 @@ export interface PieceSetOption {
 }
 
 export const PIECE_SETS: PieceSetOption[] = [
+  { id: 'default', name: 'Staunton (cburnett)', description: 'Standard tournament vectors by Colin M.L. Burnett' },
   { id: 'classic', name: 'Classic Vector', description: 'Clean solid Staunton vectors with subtle shading' },
   { id: 'outline', name: 'Line-Art Outline', description: 'Modern minimalist contour pieces' },
   { id: 'wood', name: 'Wood Grain', description: 'Warm timber-textured pieces' },
   { id: 'flat', name: 'Flat 2D', description: 'Minimalist high-contrast silhouettes' },
-  { id: 'default', name: 'Standard Web', description: 'Default @react-chessboard vector pieces' },
 ];
 
 export const PIECE_PATHS: Record<Exclude<PieceSetId, 'default'>, Record<string, string>> = {
@@ -94,7 +94,7 @@ export const PIECE_PATHS: Record<Exclude<PieceSetId, 'default'>, Record<string, 
 /**
  * Returns the SVG asset path for a piece key (e.g. 'wP', 'bN') and given piece set.
  */
-export function getPieceSvg(pieceKey: string, pieceSet: PieceSetId = 'classic'): string {
+export function getPieceSvg(pieceKey: string, pieceSet: PieceSetId = 'default'): string {
   // 'default' maps to the cburnett set (react-chessboard's actual default pieces)
   const set = pieceSet === 'default' ? 'cburnett' : pieceSet;
   const rawPath = PIECE_PATHS[set]?.[pieceKey] || PIECE_PATHS.classic[pieceKey] || '';
