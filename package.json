@@ -1,7 +1,7 @@
 {
   "name": "postmatem",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "M-Nikox (https://github.com/M-Nikox)",
   "license": "GPL-3.0-or-later",
   "type": "module",
@@ -39,4 +39,3 @@
     }
   }
 }
-

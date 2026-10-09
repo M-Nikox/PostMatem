@@ -88,7 +88,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
                     letterSpacing: '0.02em',
                   }}
                 >
-                  v1.0.0
+                  v1.0.1
                 </span>
               </div>
               <span style={{ fontSize: '12px', color: 'var(--text-tertiary)' }}>
@@ -273,7 +273,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
           }}
         >
           <span style={{ fontSize: '11px', color: 'var(--text-tertiary)' }}>
-            PostMatem v1.0.0 • Created by{' '}
+            PostMatem v1.0.1 • Created by{' '}
             <a
               href="https://github.com/M-Nikox"
               target="_blank"
